@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Registration Form!</h1>
+    <hr />
+    <form action = "#" method = "post">
+        <div>
+            <label>Enter name</label>
+            <input type = "text" name = "user" />
+        </div>
+        <div>
+            <label>Enter password</label>
+            <input type = "password" name = "pass" />
+        </div>
+        <div>
+            <label>Birthday</label>
+            <input type = "date" name = "dob" />
+        </div>
+        <div>
+            <label>Select Gender</label>
+            <input type = "radio" name = "gen" value = "M"/>Male
+            <input type = "radio" name = "gen" value = "F"/>Female
+        </div>
+        <div>
+            <label>Select Skills</label>
+            <input type = "checkbox" name = "sk" value = "Java" />Java
+            <input type = "checkbox" name = "sk" value = "Javascript" />Javascript
+            <input type = "checkbox" name = "sk" value = "Python" />Python
+        </div>
+        <div>
+            <label>Education</label>
+            <select name = "edu" >
+                <optgroup label="Graduation">
+                    <option value = "Engineering">Engineering</option>
+                    <option value = "Commerce">Commerce</option>
+                    <option value = "Management">Management</option>
+                </optgroup>
+                <optgroup label="Post Graduation">
+                    <option value = "MTech">MTech</option>
+                    <option value = "Mcom">MCom</option>
+                </optgroup>   
+            </select>
+        </div>
+        <div>
+            <input type = "submit" value = "Submit" />
+            <input type = "reset" value = "Reset" />
+        </div>
+    </form>
+</body>
+</html>
