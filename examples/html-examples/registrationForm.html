@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>A Form within a table to align it better</h1>
+    <form action="#" method = "post">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <label>Enter Username</label>
+                    </td>
+                    <td>
+                        <input type = "text" name = "user" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Enter Password</label>
+                    </td>
+                    <td>
+                        <input type = "password" name = "pass" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Birthday</label>
+                    </td>
+                    <td>
+                        <input type = "date" name = "dob" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Select Gender</label>
+                    </td>
+                    <td>
+                        <input type = "radio" name = "gen" value = "M"/>Male
+                    </td>
+                    <td>
+                        <input type = "radio" name = "gen" value = "F"/>Female
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Select Skills</label>
+                    </td>
+                    <td>
+                        <input type = "checkbox" name = "sk" value = "Java" />Java
+                    </td>
+                    <td>
+                        <input type = "checkbox" name = "sk" value = "Javascript" />Javascript
+                    </td>
+                    <td>
+                        <input type = "checkbox" name = "sk" value = "Python" />Python
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Education</label>
+                    </td>
+                    <td>
+                        <select name = "edu" multiple>
+                            <optgroup label="Graduation">
+                                <option value = "Engineering">Engineering</option>
+                                <option value = "Commerce">Commerce</option>
+                                <option value = "Management">Management</option>
+                            </optgroup>
+                            <optgroup label="Post Graduation">
+                                <option value = "MTech">MTech</option>
+                                <option value = "Mcom">MCom</option>
+                            </optgroup>   
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>
