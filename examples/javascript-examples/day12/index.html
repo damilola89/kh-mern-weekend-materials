@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var orginalPrice = 1000;
+        var discount;
+        var newPrice; 
+        
+        if (orginalPrice <= 500 ) { 
+        discount = 0.05;
+        newPrice = Math.floor(orginalPrice-(orginalPrice*discount));
+            document.write("<h2> Discount is 5%, and the NewPrice: "+newPrice+" </h2>");
+        }
+        else if (orginalPrice > 500) {
+            discount = 0.1;
+            newPrice = Math.floor(orginalPrice-(orginalPrice*discount));
+            document.write("<h2> Discount is 10%, and the NewPrice: "+newPrice+" </h2>");
+        }
+        else (orginalPrice > 10000)
+        {
+            document.write("<h2> Price is not discounted</h2>");
+        }
+        </script>
+        
+</body>
+</html>
