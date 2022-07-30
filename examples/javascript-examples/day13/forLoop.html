@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>For Loop Demo!</h1>
+    <script type = "text/javascript">
+        var counter = 1;
+        for(var i = 0; i <= 10; i++) {
+            counter = counter * 2;
+            document.write("<h3>Counter: "+counter+"</h3>");
+        }
+        document.write("<h3>Loop is terminated at counter: "+counter+"</h3>");
+        // create another for loop where the counter starts from 10 and prints 
+        // from 10 to 0 in reverse order, the loop should iterate 10 times
+        // expected output: counter: 10, counter: 9, counter: 8,.... counter: 0
+        
+        for(counter = 10; counter >= 0; counter--) {
+            document.write("<h3>Counter: "+counter+"</h3>");
+        }
+        document.write("<h3>Loop is terminated at counter: "+counter+"</h3>");
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Some predefined functions</h1>
+    <script>
+        var counter = 1;
+        var s = confirm("Do you want to continue");
+        document.write("<h2>Type of counter: "+typeof(counter)+"</h2>");
+        document.write("<h2>Type of status: "+typeof(status)+"</h2>");
+        if(s) {
+            alert("you clicked on ok");
+        } else {
+            alert("you clicked on cancel");
+        }
+        var x = prompt("Enter x"); // x = "10"
+        var y = prompt("Enter y"); // y = "20"
+        document.write("<h3>Type of x is: "+typeof(x)+"</h3>");
+        document.write("<h3>Type of y is: "+typeof(y)+"</h3>");
+        var z = x + y; // z = "10" + "20" 1020
+        document.write("<h3>z = "+z+"</h3>");
+    </script>
+</body>
+</html>
