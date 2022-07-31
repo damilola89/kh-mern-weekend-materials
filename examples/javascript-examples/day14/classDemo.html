@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Classes and Objects Demo</h2>
+    <script type = "text/javascript">
+        class Employee {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            display() {
+                document.write("<h2>Name = "+this.name+", Age = "+this.age+"</h2>");
+            }
+        }
+        var e1 = new Employee("Raj", 35); // constructor("Raj", 35)
+        var e2 = new Employee("Ajay", 45); // constructor("Ajay", 45)
+        e1.display();
+        e2.display();
+    </script>
+</body>
+</html>
