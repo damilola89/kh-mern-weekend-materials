@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Demo on Promise</h2>
+    <script type = "text/javascript">
+        function fetch() {
+            let pr = new Promise((res, rej) => {
+                // resolve means success & reject means error
+                let r = Math.random(); 
+                // generates random number from 0 to 1 i.e, 0.1235, 0.99393
+                if(r <= 0.5) {
+                    res(`Resolved with a value: ${r}`)
+                } else {
+                    rej(`Rejected with a value: ${r}`)
+                }
+            });
+            return pr;
+        }
+        let p = fetch();
+        // p is a promise you can call then(callback).catch(callback)
+        // callback of then & catch takes arguments that is passed to res or rej
+        p.then((d) => console.log(d))
+        .catch((e) => console.log(e));
+    </script>
+</body>
+</html>

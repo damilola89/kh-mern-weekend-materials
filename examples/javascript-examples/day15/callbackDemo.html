@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Callback Demo</h2>
+    <script type = "text/javascript">
+        function test() {
+            console.log(`test is called`);
+        }
+        function demo() {
+            console.log(`demo() is called`);
+        }
+        console.log(`One`);
+        test(); // synchrnous call
+        setTimeout(demo, 3000); // demo function & 3000 ms = 3s
+        // setTime takes callback as an argument
+        setTimeout(function() {
+            console.log('callback inside setTime exectes after 2s')
+        }, 2000);
+        console.log(`Two`);
+    </script>
+</body>
+</html>

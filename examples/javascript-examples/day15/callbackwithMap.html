@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Callback with Map</h2>
+    <script type = "text/javascript">
+        let items = [10, 20, 30, 40, 50];
+        //map takes a callback as an argument, which will accept 2 arguments
+        //1st argument is iterated item and 2nd is the index of the iterated item
+        let items2 = items.map(function(item, index) { 
+            console.log(`Iterated item: ${item} and index is ${index}`);
+            return item * 10;
+        });
+        // items2 will have 100, 200, 300, 400, 500
+        items2.map(function(item ,index) {
+            console.log(`Another map item: ${item} and index is ${index}`)
+        });
+        // items3 will have elements got from arrow functions
+        let items3 = items.map((item, index) => item * 2);
+        items3.map((item, index) => 
+            console.log(`Another map item: ${item} and index is ${index}`))
+    </script>
+</body>
+</html>

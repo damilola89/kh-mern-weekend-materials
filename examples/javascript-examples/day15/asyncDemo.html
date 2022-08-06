@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Demo on Promise</h2>
+    <script type = "text/javascript">
+        function fetch() {
+            let p = new Promise((resolve, reject) => {
+                let r = Math.random();
+                if(r >= 0.5) {
+                    resolve(`Resolved with a value: ${r}`)
+                } else {
+                    reject(`Rejected with a value: ${r}`);
+                }
+            });
+            return p;
+        }
+        async function getData() {
+            let p = fetch();
+            p.then(s => console.log(s)).catch(e => console.log(e));
+            // waits for promise result
+            console.log('-------------------')
+            let p2 = await p;
+            console.log(p2); 
+        }
+        getData();
+    </script>
+</body>
+</html>
