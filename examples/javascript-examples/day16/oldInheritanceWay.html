@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Old way of achieving inheritance</h2>
+    <script type = "text/javascript">
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        // adding functions to the object Person
+        Person.prototype.display = function() {
+            console.log(`Person Name = ${this.name}, Age = ${this.age}`)
+        }
+        function Employee(name, age, salary) {
+            Person.call(this, name, age); // similar super(name, age)
+            this.salary = salary;
+        }
+        // achieving inheritance using prototype
+        Employee.prototype = Object.create(Person.prototype); // similar Employee extends Person
+        let p = new Person("Vijay", 34);
+        p.display();
+        let e = new Employee("Ajay", 44, 50000);
+        e.display();
+    </script>
+</body>
+</html>

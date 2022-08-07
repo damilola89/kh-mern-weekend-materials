@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 onclick="handleClick(event)">Event Demo</h2>
+    <div>
+        <input type = "text" oninput="fetchInput(event)">
+        <button onclick="handleClick(event)">Click Me!</button>
+        <div>
+            <img id = "imageId" src = "../pics/sea.jpg" width = "250" height="250">
+        </div>
+        <div onclick="imageLocation(event)">
+            <img src = "../pics/parrot.jpg" width = "100" height="100">
+            <img src = "../pics/sea.jpg" width = "100" height="100">
+            <img src = "../pics/sky.jpg" width = "100" height="100">
+            <img src = "../pics/stones.jpg" width = "100" height="100">
+        </div>
+    </div>
+    <script type = "text/javascript">
+        function handleClick(e) {
+            console.log(e); 
+        }
+        function fetchInput(e) {
+            let ele = e.target;
+            console.log(ele.value);
+        }
+        function imageLocation(e) {
+            let ele = document.getElementById('imageId'); // element # imageId
+            if(e.target.tagName == 'IMG') {
+                ele.src = e.target.src; // img#imageId.src = 
+            } else {
+                alert('you are not clicking on image');
+            }
+        }
+    </script>
+</body>
+</html>

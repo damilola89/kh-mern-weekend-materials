@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Inheritance Demo</h1>
+    <script type = "text/javascript">
+        class Person {  
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            display() {
+                console.log('------person display()-------')
+                console.log(`Name= ${this.name}, Age = ${this.age}`)
+            }
+        }
+        class Employee extends Person { // Person is the super class
+            constructor(name, age, salary) {
+                super(name, age); // passes arguments to super class constructor
+                this.salary = salary;
+            }
+            display() {
+                console.log('------employee display()-----');
+                console.log(`Name= ${this.name}, Age= ${this.age}, Salary= ${this.salary}`)
+            }
+        }
+        let p = new Person("Raj", 35); 
+        let e = new Employee("Ravi", 44, 50000);
+        p.display();
+        e.display();
+    </script>
+</body>
+</html>
