@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>List of users!</h2>
+    <div id = "main"></div>
+    <script type = "text/javascript">
+        let url = "https://jsonplaceholder.typicode.com/users/";
+        let xhr = new XMLHttpRequest();
+        let ele = document.getElementById("main");
+        xhr.open("GET", url);
+        xhr.send();
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState == 4) {
+                let table = `<table border = "1"><thead>
+                        <tr><th>Id</th><th>Username</th><th>Stree</th><th>City</th>
+                    </thead>`;
+                let data = xhr.responseText;
+                let jsArray = JSON.parse(data);
+                let rows = ``;
+                for(let i = 0; i < jsArray.length; i++) {
+                    rows = `${rows} <tr><td>${jsArray[i].id}</td>
+                        <td>${jsArray[i].username}</td>
+                        <td>${jsArray[i].address.street}</td>
+                        <td>${jsArray[i].address.city}</td>
+                        </tr>`
+                }
+                table = `${table}<tbody>${rows}</tbody></table>`;
+                ele.innerHTML = table;
+            }
+        }
+    </script>
+</body>
+</html>

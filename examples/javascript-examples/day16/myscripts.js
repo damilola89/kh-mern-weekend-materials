@@ -1,3 +1,4 @@
+
 function validateUser() {
     let user = document.getElementById("i1").value;
     let pass = document.getElementById("i2").value;

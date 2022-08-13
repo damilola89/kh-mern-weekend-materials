@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Calling Fake API</h2>
+        <input type = "number" placeholder="Enter id" id = "userId">
+        <button onclick = "search()">Search</button>
+        <div id = "main">Hello, look at this it will change</div>
+    <script type = "text/javascript">
+        function search() {
+            let id = document.getElementById('userId').value;
+            let url = `https://jsonplaceholder.typicode.com/users/${id}`
+            let xhr = new XMLHttpRequest();
+            let ele = document.getElementById('main');
+            // open(httpMethod, url): to initialize the request
+            xhr.open("GET", url);
+            // send() to send the request
+            xhr.send(); 
+            // onreadystatechange is an event that occurs 
+            // each time readyState changes from 1 to 4
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState == 4) {
+                    // responseText is to retrieve the data from the backend
+                    //ele.innerHTML = xhr.responseText;
+                    // converting JSON to Javascript objects using JSON.parse(jsonData)
+                    let obj = JSON.parse(xhr.responseText); 
+                    // obj = {id: value, name: value, addresss: {street: ..., city: ...}}
+                    let htmlContent = `<p>Hello ${obj.username}, 
+                        your id is ${obj.id}, Street is ${obj.address.street}</p>`
+                    ele.innerHTML = htmlContent;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
