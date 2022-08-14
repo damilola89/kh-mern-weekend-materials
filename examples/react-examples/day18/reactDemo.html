@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "root"></div>
+    <!-- Need to add 3 libraries React, ReactDOM and Babel-->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.18.12/babel.min.js"></script>
+    <!-- Ensure type is text/babel -->
+    <script type = "text/babel">
+        class Hello extends React.Component {
+            // create a name in lowercase and while displaying show it all the characters in uppercase
+            render() {
+                let name = "vijay";
+                return (<div>
+                    <h2>Hello Component is rendered</h2>
+                    <h3>Name: {name.toUpperCase()}</h3>
+                </div>)
+            }
+        }
+        class App extends React.Component {
+            render() {
+                let username = "Sachin";
+                let date = new Date();
+                return (<div>
+                    <h1>This is our first component named App</h1>
+                    <h2>Hi, {username}!</h2>
+                    <h2>Date: {date.toLocaleDateString()}</h2>
+                    <Hello />
+                    <Hello />
+                </div>)
+            }
+        }
+        // loading the App to the div#root using ReactDOM.render(rootComponent, div#root)
+        //ReactDOM.render(<App />, document.getElementById("root"));
+        // new way of loading the components to the DOM
+        let root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App />);
+    </script>
+</body>
+</html>
