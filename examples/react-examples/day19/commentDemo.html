@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.18.12/babel.min.js" integrity="sha512-AiVzbSxXraEL1ZC5MTLFal3rPCl56WrCIoXdur5U31SQ1byUZzgOnhqGeCFqwD6Owv9Q1DhS82Cpz+Tdym8hjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script type = "text/babel">
+        class Image extends React.Component {
+            render() {
+                let url = this.props.imageUrl;
+                let width = this.props.width;
+                let height = this.props.height;
+                return ( <div>
+                    <img src = {url} width = {width} 
+                      height = {height}></img>
+                </div>);
+            }
+        }
+        class Profile extends React.Component {
+            render() {
+                let name = this.props.profile.username;
+                let dob = this.props.profile.dob;
+                let imageUrl = this.props.profile.imageUrl;
+                return (<div>
+                    <Image imageUrl = {imageUrl} width = "100" 
+                        height = "100" />
+                    <h4>Name: {name}</h4>
+                    <h5>Birthday: {dob}</h5>
+                </div>);
+            }
+        }
+        class Comment extends React.Component {
+            render() {
+                let text = this.props.text;
+                let date = this.props.date;
+                let profile = this.props.profile;
+                return (<div>
+                    <h3>Comment Component</h3>
+                    <p>Text: {text}</p>
+                    <p>Date: {date}</p>
+                    <Profile profile = {profile} />
+                    <hr />
+                </div>);
+            }
+        }
+        class App extends React.Component {
+            render() {
+                let comment1 = {
+                    text: "Hi, how are you?",
+                    date: "2022-08-20", 
+                    profile: {
+                        username: "Mark Zuckerberg", 
+                        dob: "1978-02-25", 
+                        imageUrl: "data:image/jpeg;base64,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"
+                    }
+                };
+                let comment2 = {
+                    text: "I am good!", date: "2022-08-20", 
+                    profile: {
+                        username: "Bill Gates", dob: "1948-06-15", imageUrl: "data:image/jpeg;base64,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"
+                    }
+                }
+                return (<div>
+                    <h1>This is App component</h1>
+                    <Comment text = {comment1.text} 
+                        date = {comment1.date} 
+                        profile = {comment1.profile}/>
+                    <Comment text = {comment2.text} date = {comment2.date} profile = {comment2.profile}/>
+                </div>);
+            }
+        }
+        let root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
