@@ -2,6 +2,41 @@ import './App.css';
 import { Link, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
+
+function UsersList() {
+  let [users, setUsers] = useState([]);
+ 
+  let handleRefresh = ( e ) => {
+    let url = "http://localhost:3001/users"
+    axios.get(url)
+    .then( (response) => setUsers(response.data))
+    .catch( (err) => console.log(err));
+  }
+  return (<div>
+    <button className = 'btn btn-primary' onClick = {handleRefresh}>Refresh</button>
+    <table className = "table">
+      <thead>
+        <tr>
+          <th>ID</th><th>NAME</th><th>PHONE</th><th>DELETE</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          users.map( (item, index)  => <tr key = {index}>
+            <td>{item.id}</td><td>{item.name}</td><td>{item.phone}</td>
+            <td>
+              <button className = 'btn btn-danger' onClick = {() => {
+                 axios.delete(`http://localhost:3001/users/${item.id}`)
+                 .then(() => {handleRefresh()})
+              }}>Delete</button>
+            </td>
+          </tr>)
+        }
+      </tbody>
+    </table>
+  </div>)
+}
+
 function Register() {
   let [id, setId] = useState(undefined);
   let [name, setName] = useState('');
@@ -14,7 +49,6 @@ function Register() {
     axios.post(url, {"id":id, "name":name, "phone":phone})
     .then( (s) => setMessage(`${id} stored successfully`) )
     .catch( (e) => console.log(e))
-    
   }
   
   return (<div>
@@ -22,13 +56,16 @@ function Register() {
     <h5 className = 'text text-success'>{message}</h5>
     <form onSubmit = {handleSubmit}>
     <label>
-        Id <input type = 'number' onChange={(e) => setId(parseInt(e.target.value))}/>
+        Id <input type = 'number' 
+          onChange={(e) => setId(parseInt(e.target.value))}/>
       </label> <br />
       <label>
-        Name <input type = 'text' onChange={(e) => setName(e.target.value)}/>
+        Name <input type = 'text' 
+          onChange={(e) => setName(e.target.value)}/>
       </label> <br />
       <label>
-        Phone <input type = 'number' onChange={(e) => setPhone(parseInt(e.target.value))}/>
+        Phone <input type = 'number' 
+          onChange={(e) => setPhone(parseInt(e.target.value))}/>
       </label> <br />
       <input type = 'submit' value = 'Submit' />
     </form>
@@ -54,7 +91,7 @@ function App() {
         <Routes>
           <Route path = '/login' element = {<Login />} />
           <Route path = '/register' element = {<Register />} />
-          <Route path = '/fetch' element = {<FakeJson />} />
+          <Route path = '/fetch' element = {<UsersList />} />
         </Routes>
       </div>
     </div>
