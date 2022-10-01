@@ -31,5 +31,4 @@ app.get('/users/:id', (request, response) => {
     } else {
         response.status(404).json({"message": `Sorry ${id} not found`});
     }
-    
 });
